@@ -17,12 +17,13 @@ GREEN = (44, 174, 107)
 YELLOW = (255, 255, 51)
 BLACK = (0, 0, 0)
 
-# Set up the font
-font_path = "MonumentValley12-X55o.otf"
-font_size = 26
+# # Set up the font
+font_path = "eurostile.TTF"
+font_size = 24
+
 font = pygame.font.Font(font_path, font_size)
 # Make the font bold
-font.set_bold(True)
+# font.set_bold(True)
 
 # Set up the input box
 input_box = pygame.Rect(100, 100, 600, 50)
@@ -34,7 +35,6 @@ text = ''
 
 # Output variables
 output_text = ''
-output_rect = pygame.Rect(100, 200, 600, 200)
 
 # Create the window
 window = pygame.display.set_mode((window_width, window_height))
@@ -113,9 +113,12 @@ while running:
     text_surface = font.render(text, True, BLACK)
     window.blit(text_surface, (input_box.x + 5, input_box.y + 5))
 
-    renderTextCenteredAt(output_text, font, YELLOW, 400, 150, window, 400)
+    renderTextCenteredAt(output_text, font, YELLOW, 400, 200, window, 600)
 
     pygame.display.flip()
+
+    # Control the frame rate
+    pygame.time.Clock().tick(30)
 
 # Quit Pygame
 pygame.quit()
