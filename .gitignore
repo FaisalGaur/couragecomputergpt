@@ -1,4 +1,13 @@
-venv
-*.log
-*/.idea
+# file: ~/.gitignore_global
+.DS_Store
+
+# no pycharm other jetbrain ide files
+.idea
+# no compiled python
+
+.pyc
+# no files to execute the virtual environment
+venv*
+
+# no pychache directories nor files
 __pycache__
