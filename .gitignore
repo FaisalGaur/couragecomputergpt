@@ -1,4 +1,4 @@
 venv
 *.log
-.idea
+*/.idea
 __pycache__
