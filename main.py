@@ -30,14 +30,15 @@ input_box = pygame.Rect(100, 100, 600, 50)
 color_active = pygame.Color('dodgerblue2')
 INPUT_BOX_COLOR = (200, 200, 200)
 MAX_WIDTH = 500
-active = True
 text = ''
 
 # Output variables
 output_text = ''
 
 # Create the window
-window = pygame.display.set_mode((window_width, window_height))
+window = pygame.display.set_mode((window_width, window_height), pygame.FULLSCREEN)
+# Hide the mouse cursor
+pygame.mouse.set_visible(False)
 pygame.display.set_caption("Smart Computer")
 
 humSound = SOUNDS["hum"]
@@ -95,14 +96,15 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.KEYDOWN:
-            if active:
-                if event.key == pygame.K_RETURN:
-                    output_text = execute_command(text)
-                    text = ''
-                elif event.key == pygame.K_BACKSPACE:
-                    text = text[:-1]
-                else:
-                    text += event.unicode
+            if event.key == pygame.K_ESCAPE:
+                screen = pygame.display.set_mode((window_width, window_height))
+            elif event.key == pygame.K_RETURN:
+                output_text = execute_command(text)
+                text = ''
+            elif event.key == pygame.K_BACKSPACE:
+                text = text[:-1]
+            else:
+                text += event.unicode
 
     # Fill the window with white color
     window.fill(GREEN)
